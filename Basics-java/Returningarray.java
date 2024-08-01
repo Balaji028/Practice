@@ -1,35 +1,59 @@
 import java.util.Scanner;
 
-class Icecream
+class IceCream
 {
+    public String Name;
 
-    
-
-    public IceCream[] storeDetailsinIceCreamArray(int index)
+    public IceCream(String Name)
     {
-        String name;
-        Icecream[] ice = new Icecream[index];
-        Scanner sc = new Scanner(System.in);
-        for(int i =0;i<ice.length;i++)
+        this.Name = Name;
+
+    }
+
+    public String getName()
+    {
+        return Name;
+    }
+
+    public static  IceCream[] getDetails(int index)
+    {
+        System.out.println("In get getDetails");
+        IceCream [] ice = new IceCream[index];
+
+        System.out.println("The length of icecream array is"+ice.length);
+
+        for(int i=0 ;i<ice.length;i++)
         {
-            name = sc.nextLine();
-            if(name =="")
+            System.out.println("enter the values ");
+            Scanner sc = new Scanner(System.in);
+            String temp;
+            temp =sc.nextLine();
+            
+            if(temp=="")
             {
-                name ="Vanilla";
-                ice[i]=name;
-
+                temp="vanilla";
             }
-            else
-            {
-                ice[i]=name;
-            } 
+            ice[i]=new IceCream(temp);
+            
         }
+
+        return ice;
+
+
     }
 
-    protected void displayingDetails(IceCream ice)
+}
+
+public class Returningarray {
+
+    public static void main(String[] args) 
     {
-        for(int )
+       IceCream[] s =  IceCream.getDetails(3);
+
+       for(int i =0;i<s.length;i++)
+       {
+        System.out.println("The value is "+s[i].getName());
+       }
 
     }
-
 }
